@@ -199,10 +199,12 @@ const Projects = () => {
     const [preview, setPreview] = useState(false);
 
     return (
-        <section onMouseMove={handleMouseMove} className="relative c-space section-spacing">
+        <section onMouseMove={handleMouseMove} className="relative c-space section-spacing !min-h-fit">
             <h2 className="text-heading">My Selected Projects</h2>
 
-            <div className='bg-gradient-to-r from-transparent via-neutral-700 to-transparent mt-12 h-px w-full'>
+            {/* <div className='bg-gradient-to-r from-transparent via-neutral-700 to-transparent mt-12 h-px w-full'> */}
+            <div className='mt-12 w-full'>
+                <div className='bg-gradient-to-r from-transparent via-neutral-700 to-transparent mt-12 h-px w-full'></div>
                 {
                     projects.map((project, index) => (
                         <Project key={project.id || index} project={project} setPreview={setPreview} />
