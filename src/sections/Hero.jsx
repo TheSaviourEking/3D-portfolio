@@ -12,25 +12,27 @@ const Hero = () => {
     const isMobile = useMediaQuery({ maxWidth: 853 });
 
     return (
-        // <section className="flex item-center justify-center md:items-start md:justify-start min-h-screen overflow-hidden c-space">
-        <section className="flex item-center justify-center md:items-center md:justify-start min-h-screen overflow-hidden c-space">
-            <HeroText />
+        <>
             <ParallaxBackground />
+            <section className="flex item-center justify-center md:items-center md:justify-start min-h-screen overflow-hidden c-space">
+                <HeroText />
+                {/* <ParallaxBackground /> */}
 
-            <figure className='absolute inset-0'
-                style={{ width: '100vw', height: '100vh' }}
-            >
-                <Canvas camera={{ position: [0, 1, 3] }}>
-                    <Suspense fallback={<Loader />}>
-                        <Float>
-                            <Astronaut scale={isMobile && 0.23} position={isMobile && [0, -1.5, 0]} />
-                        </Float>
-                        {/* <OrbitControls /> */}
-                        <Rig />
-                    </Suspense>
-                </Canvas>
-            </figure>
-        </section>
+                <figure className='absolute inset-0'
+                    style={{ width: '100vw', height: '100vh' }}
+                >
+                    <Canvas camera={{ position: [0, 1, 3] }}>
+                        <Suspense fallback={<Loader />}>
+                            <Float>
+                                <Astronaut scale={isMobile && 0.23} position={isMobile && [0, -1.5, 0]} />
+                            </Float>
+                            {/* <OrbitControls /> */}
+                            <Rig />
+                        </Suspense>
+                    </Canvas>
+                </figure>
+            </section>
+        </>
     )
 }
 
